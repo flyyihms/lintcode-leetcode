@@ -1,0 +1,72 @@
+public class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int[][] matrix=new int[r][c];%%%%注意声明是时候前面要有new
+        int row=nums.length;
+        int col=nums[0].length;%%%%注意获取列数的方法
+        int mm=0;
+        int nn=0;
+        int  num=row*col;
+        if(num==r*c){
+             for (int m=0;m<r;m++){
+                 for (int n=0;n<c;n++){
+                     matrix[m][n]=nums[mm][nn];
+                     nn++;
+                     if(nn==col){
+                         nn=0;
+                         mm++;
+                     }             
+                 }                 
+            }
+            return matrix;%%%%注意返回值
+        }
+       else{%%%%%注意if、else后面都要跟花括号
+           return nums;
+       }      
+    }
+}
+&&&&&&&&&&&&&&&&&&完整程序
+package mypro01;
+
+public abstract class test01 {
+	   public static int[][] matrixReshape(int[][] nums, int r, int c) {
+	        int[][] matrix=new int[r][c];
+	        int row=nums.length;
+	        int col=nums[0].length;
+	        int mm=0;
+	        int nn=0;
+	        int  num=row*col;
+	        if(num==r*c){
+	             for (int m=0;m<r;m++){
+	                 for (int n=0;n<c;n++){
+	                     matrix[m][n]=nums[mm][nn];
+	                     nn++;
+	                     if(nn==col){
+	                         nn=0;
+	                         mm++;
+	                     }             
+	                 }                 
+	            }
+	            return matrix;
+	        }
+	       else{
+	           return nums;
+	       }      
+	    }
+	    public static void main(String[] args) {
+	    	int[][] nums={
+					{3,4},
+					{5,6},
+			};
+	    	int[][] aa=matrixReshape(nums,1,4);
+	    	System.out.println(aa);%%%%%%%%%这里输出的是一个地址 e.g.[[I@15db9742，打印方法如下，用println来输出矩阵的形式
+		}
+    //打印矩阵
+		for(int i=0;i<c.length;i++){
+			for(int j=0;j<c.length;j++){
+				
+				System.out.print(c[i][j]+"\t");
+			}
+			System.out.println();
+		}
+
+}
