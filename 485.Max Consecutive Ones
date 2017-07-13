@@ -44,3 +44,21 @@ public abstract class test01 {
 		int a=findMaxConsecutiveOnes(nums);
 		System.out.println(a);
 	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%别人的
+public class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int result = 0;
+        int count = 0;
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+        	count++;
+        	result = Math.max(count, result);%这个可以直接用，不用加什么包
+            }
+            else count = 0;
+        }
+        
+        return result;
+    }
+}
