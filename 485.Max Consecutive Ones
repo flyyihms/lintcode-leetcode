@@ -1,0 +1,46 @@
+
+public class Solution {
+   	  public static int findMaxConsecutiveOnes(int[] nums) {
+	           int len=nums.length;
+        int[] result={0,0};
+        for (int i=0;i<len;i++){
+            if(nums[i]==1){
+                result[1]=result[1]+1;
+                if(result[1]>result[0]){
+                    result[0]=result[1];
+                }
+            }
+            else{
+               
+                   result[1]=0;
+               }
+            }
+	       return result[0]; 
+      }
+}%没啥说的，思路正确就行（想说算法==突然觉得这么low不好意思叫算法）
+%%%%%%%%%%%%%%%%%%%%完整程序
+package mypro01;%%%%%%%%%%%%%%第一个完全自己做的哎！而且击败了66.62%
+
+public abstract class test01 {
+	  public static int findMaxConsecutiveOnes(int[] nums) {
+	       int len=nums.length;
+        int[] result={0,0};
+        for (int i=0;i<len;i++){
+            if(nums[i]==1){
+                result[1]=result[1]+1;
+                if(result[1]>result[0]){
+                    result[0]=result[1];
+                }
+            }
+            else{
+               
+                   result[1]=0;
+               }
+            }
+	       return result[0]; 
+	    }
+	  public static void main(String[] args) {
+		int[] nums={1,0,1,0,1};
+		int a=findMaxConsecutiveOnes(nums);
+		System.out.println(a);
+	}
