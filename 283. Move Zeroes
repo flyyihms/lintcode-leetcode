@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%我的%%%%%%%%%%%%%%%%%%%慢，思路(大概是与0交换位置的想法）差=_=
+public class Solution {
+    public void moveZeroes(int[] nums) {
+       
+        int len=nums.length;
+        int a=0;
+        
+       
+        for (int i=0;i<len;i++){
+            if (nums[i]==0) {
+               a=a+1; 
+                
+            }
+            else
+            {
+                nums[i-a]=nums[i];
+                if(a>0){
+                   nums[i]=0;  
+                }
+              
+            }
+        }
+      
+    }
+}
+%%%%%%%几个点：Arrays.sort（）或者其他方法，不是Array.sort（）；Math.max（）只能比较两个数的大小，找出更大的，找出一个数组中的
+
+%%%%%%%%%%%%%%%%%%%别人的%%%%%%%%%%%%%%%%%（直接把所有非零的往前挪，然后后面的直接都得零）
+public void moveZeroes(int[] nums) {
+    if (nums == null || nums.length == 0) return;        
+
+    int insertPos = 0;
+    for (int num: nums) {
+        if (num != 0) nums[insertPos++] = num;
+    }        
+
+    while (insertPos < nums.length) {
+        nums[insertPos++] = 0;
+    }
+}
