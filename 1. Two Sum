@@ -1,0 +1,46 @@
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+______________________________________
+
+
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+          int[] result = new int[2];
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    for (int i = 0; i < nums.length; i++) {
+        if (map.containsKey(target - nums[i])) {
+            result[1] = i ;
+            result[0] = map.get(target - nums[i]);
+            return result;
+        }
+        map.put(nums[i], i );
+    }
+    return result;
+        
+    }
+}
+--------------------------------------
+containsKey方法用来判断Map集合对象中是否包含指定的键名。
+
+语法  boolean containsKey(Object key) 
+
+返回值：如果Map集合中包含指定的键名，则返回true；否则返回false。
+
+参数：key是要查询的Map集合的键名对象。
+--------------------------------------------
+put
+
+该方法将获取Map集合的所有键名，并存放在一个Set集合对象中。
+
+语法  put(K key, V value) 
+
+key：是要保存到Map集合中的键名。
+
+value：是要保存到Map集合中对应键名的键值对象。
