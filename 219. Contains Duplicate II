@@ -1,0 +1,44 @@
+
+题述
+Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array
+such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+
+别人的答案
+
+public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if(i > k) set.remove(nums[i-k-1]);
+            if(!set.add(nums[i])) return true;
+        }
+        return false;
+ }
+ 另开一个hashset介绍
+ *****************
+ public class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer, Integer> cont = new HashMap<Integer, Integer>();
+        boolean result=false;
+        int dist=0;
+        int left=0,right=0;
+        for(int i=0;i<nums.length;i++){
+             dist=right-left;
+            if(dist>k){
+                
+                cont.remove(nums[left]);
+                left=left+1;
+            }
+           
+             if(cont.containsKey(nums[i])){
+                 result=true;
+            }
+            cont.put(nums[i],i);
+           
+          right=right+1;
+        }
+        return result;
+    
+         
+    }
+}
+应该比上面的慢。。。但是！是根据前天刚学的hashmap自己写的 所以！还是很棒滴（自己夸自己嘻嘻）
