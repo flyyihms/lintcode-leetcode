@@ -1,0 +1,61 @@
+*************我是考虑了int的数值范围才这么写的，如果是double==那就没完没了了 int四个字节，-2147483648~2147483647
+public class Solution {
+    public int addDigits(int num) {
+        int temp1=0,temp2=0,temp3=0;
+        int s1,s2,s3,s4,s5,s6,s7,s8,s9=0;
+        int y1,y2,y3,y4,y5,y6,y7,y8,y9=0;
+        s1=num/1000000000;
+        y1=num%1000000000;
+        
+        s2=y1/100000000;
+        y2=y1%100000000;
+         
+        s3=y2/10000000;
+        y3=y2%10000000;
+         
+        s4=y3/1000000;
+        y4=y3%1000000;
+         
+        s5=y4/100000;
+        y5=y4%100000;
+         
+        s6=y5/10000;
+        y6=y5%10000;
+          
+        s7=y6/1000;
+        y7=y6%1000;
+           
+        s8=y7/100;
+        y8=y7%100;
+            
+        s9=y8/10;
+        y9=y8%10;
+        
+        temp1=s1+s2+s3+s4+s5+s6+s7+s8+s9+y9;//90
+        temp2=temp1/10+temp1%10;//18
+        temp3=temp2/10+temp2%10;
+        return temp3;
+    }
+}
+***************************
+别人的
+public class Solution {
+
+    public int addDigits(int num) {
+
+        return num==0?0:(num%9==0?9:(num%9));
+
+    }
+
+}
+*************************
+别人的
+public class Solution {
+    public int addDigits(int num) {
+        return 1+(num-1)%9;
+    }
+}
+**********************************太简单了有没有！！！
+这道题是数字根的应用，但是我还没太明白原理
+参考
+http://www.cnblogs.com/Rinyo/archive/2012/12/20/2826755.html
