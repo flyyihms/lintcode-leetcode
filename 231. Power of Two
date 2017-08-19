@@ -1,0 +1,31 @@
+
+Given an integer, write a function to determine if it is a power of two.判断是不是2的幂次
+
+******Power of 2 means only one bit of n is '1', so use the trick n&(n-1)==0 to judge whether that is the case
+如果是2的幂次，则二进制写法中只有一位是1，减一之后再做与（&）运算应该为0
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return (n & (n-1)) == 0 && n > 0;
+    }
+}
+
+
+
+我自己的。。。
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+          int yu=0;
+        //boolean res=false;
+        if(n<=0){
+            return false; 
+        }
+        while(yu==0&&n>1){
+            yu=n%2;
+            n=n/2;
+            
+        }
+        return n==1&&yu==0;
+        
+    }
+}
