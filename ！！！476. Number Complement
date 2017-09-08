@@ -1,0 +1,43 @@
+Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+Note:
+The given integer is guaranteed to fit within the range of a 32-bit signed integer.
+You could assume no leading zero bit in the integer’s binary representation.
+Example 1:
+Input: 5
+Output: 2
+Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+Example 2:
+Input: 1
+Output: 0
+Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
+题不难，但是二进制存储和显示搞不清==
+class Solution {
+    public int findComplement(int num) {
+        return ~num & ((Integer.highestOneBit(num) << 1) - 1);
+        
+    }
+}
+二进制数在内存中是以补码的形式存放的。
+正数的补码、反码都是其本身。
+负数的补码：符号位不变，其余各位求反，末位加1；反码：符号位为1，其余各位求反，但末位不加1.
+
+正数9（二进制为：1001）在内存中存储为01001，必须补上符号位（开头的0为符号位）。
+
+补码为01001、反码为01001
+
+负数-1（二进制为：0001）在内存中存储为10001，开头的1为符号位，在内存中存放为，11111（负数的补码是：符号位不变，其余各位求反，末位加1）既得到11111。
+
+补码为11111、反码为11110
+
+按位&操作的是内存中的数比如上面的程序中
+5->101->0101->(取反)1010->显示->1001->1110(-6)
+(Integer.highestOneBit(num) << 1) - 1是7（111）
+实际进行按位&的是1010&111=10（2）
+???所以程序改成下面不好吗?可能是效率问题？？？不清楚
+class Solution {
+    public int findComplement(int num) {
+        return num ^ ((Integer.highestOneBit(num) << 1) - 1);
+        
+    }
+}
