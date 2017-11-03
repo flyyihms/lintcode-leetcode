@@ -1,2 +1,3 @@
 【1】取长度时不同 string s s.length()    数组 nums nums.length
 【2】string s s.charAT(i) 取string第几位（12345 1应该是i=0时候）
+【3】二叉树怎么打印？
