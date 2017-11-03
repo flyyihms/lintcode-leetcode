@@ -1,0 +1,68 @@
+Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.二叉树完整程序
+
+
+package hello;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.io.*;
+import java.util.*;
+public class test {
+	public static class TreeNode {
+	      int val;
+	      TreeNode left;
+	     TreeNode right;
+	      TreeNode(int x) { val = x; }
+	  }
+		 public static List<Double> averageOfLevels(TreeNode root) {
+		      List<Double> result = new ArrayList<>();
+		    Queue<TreeNode> q = new LinkedList<>();
+		    
+		    if(root == null) return result;
+		    q.add(root);
+		    while(!q.isEmpty()) {
+		        int n = q.size();
+		        double sum = 0.0;
+		        for(int i = 0; i < n; i++) {
+		            TreeNode node = q.poll();//poll移除并返回队列中第一个元素
+		            sum += node.val;
+		            if(node.left != null) q.offer(node.left);//添加一个元素并返回TRUE，如果队列已满，则返回FALSE
+		            if(node.right != null) q.offer(node.right);
+		        }
+		        result.add(sum / n);
+		    }
+		    return result;   
+		    }
+	    
+	public static void main(String[] args) {
+		TreeNode a=new TreeNode(3);
+		TreeNode b=new TreeNode(9);
+		TreeNode c=new TreeNode(20);
+		TreeNode d=new TreeNode(15);
+		TreeNode e=new TreeNode(7);
+		TreeNode f=new TreeNode(6);
+		TreeNode g=new TreeNode(4);
+		TreeNode h=new TreeNode(8);
+		TreeNode i=new TreeNode(5);
+		TreeNode k=new TreeNode(2);
+		a.left=b;
+		a.right=c;
+		b.left=d;
+		b.right=e;
+		c.left=f;
+		c.right=g;
+		e.left=h;
+		e.right=i;
+		f.left=k;
+		
+	
+		//averageOfLevels( a);
+		
+		//String str=Arrays.toString(res);
+		System.out.println(averageOfLevels(a));
+	}
+	
+}
+	
+      
